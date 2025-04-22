@@ -29,7 +29,7 @@ Item {
             width: 100
             height: 100
 
-            color: "white"
+            color: "#1a2226"
         }
 
         Rectangle {
@@ -38,6 +38,13 @@ Item {
             height: 100
 
             color: "#3288EA"
+
+            Text {
+                text: "Przewidywane\n0"
+                horizontalAlignment: Text.AlignHCenter
+                font.pixelSize: 14
+                anchors.centerIn: parent
+            }
         }
 
         Rectangle {
@@ -46,6 +53,13 @@ Item {
             height: 100
 
             color: "#3288EA"
+
+            Text {
+                text: "Przewidywane\n1"
+                horizontalAlignment: Text.AlignHCenter
+                font.pixelSize: 14
+                anchors.centerIn: parent
+            }
         }
 
         Rectangle {
@@ -54,6 +68,13 @@ Item {
             height: 100
 
             color: "#3288EA"
+
+            Text {
+                text: "Faktyczne\n0"
+                horizontalAlignment: Text.AlignHCenter
+                font.pixelSize: 14
+                anchors.centerIn: parent
+            }
         }
 
         Rectangle {
@@ -62,6 +83,13 @@ Item {
             height: 100
 
             color: "#3288EA"
+
+            Text {
+                text: "21"
+                horizontalAlignment: Text.AlignHCenter
+                font.pixelSize: 14
+                anchors.centerIn: parent
+            }
         }
 
         Rectangle {
@@ -70,6 +98,13 @@ Item {
             height: 100
 
             color: "#3288EA"
+
+            Text {
+                text: "37"
+                horizontalAlignment: Text.AlignHCenter
+                font.pixelSize: 14
+                anchors.centerIn: parent
+            }
         }
 
         Rectangle {
@@ -78,6 +113,13 @@ Item {
             height: 100
 
             color: "#3288EA"
+
+            Text {
+                text: "Faktyczne\n1"
+                horizontalAlignment: Text.AlignHCenter
+                font.pixelSize: 14
+                anchors.centerIn: parent
+            }
         }
 
         Rectangle {
@@ -86,6 +128,13 @@ Item {
             height: 100
 
             color: "#3288EA"
+
+            Text {
+                text: "37"
+                horizontalAlignment: Text.AlignHCenter
+                font.pixelSize: 14
+                anchors.centerIn: parent
+            }
         }
 
         Rectangle {
@@ -94,6 +143,13 @@ Item {
             height: 100
 
             color: "#3288EA"
+
+            Text {
+                text: "21"
+                horizontalAlignment: Text.AlignHCenter
+                font.pixelSize: 14
+                anchors.centerIn: parent
+            }
         }
 
     }

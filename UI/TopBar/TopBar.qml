@@ -1,4 +1,6 @@
 import QtQuick 2.15
+import CSVReader
+import ModelAnalysis
 
 import QtQuick.Layouts
 import QtQuick.Controls
@@ -69,9 +71,9 @@ Rectangle {
                 height: 25
                 width: 100
 
-                //onClicked: {
-                //    loadFile(fileNameField.text)
-                //}
+                onClicked: {
+                    csvReader.loadFileSlot("Data/" + fileNameField.text + ".csv")
+                }
             }
         }
 
@@ -125,6 +127,10 @@ Rectangle {
             Layout.preferredHeight: 25
             Layout.preferredWidth: 100
             Layout.topMargin: 15
+
+            onClicked: {
+                modelAnalysis.calculate()
+            }
         }
 
     }

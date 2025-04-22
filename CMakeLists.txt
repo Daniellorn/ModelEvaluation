@@ -29,6 +29,8 @@ qt_add_qml_module(appZadanieProgramistyczneED
         QML_FILES UI/RightScreen/ConfusionMatrix_R.qml
         QML_FILES UI/LeftScreen/MetricsRegresion_L.qml
         QML_FILES UI/RightScreen/MetricsRegresion_R.qml
+        SOURCES Backend/Csvreader.h Backend/Csvreader.cpp
+        SOURCES Backend/modelanalysis.h Backend/modelanalysis.cpp
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.

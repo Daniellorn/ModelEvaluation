@@ -1,5 +1,7 @@
 import QtQuick 2.15
 
+import ModelAnalysis
+
 import QtQuick.Layouts
 
 Item {
@@ -29,7 +31,7 @@ Item {
             width: 100
             height: 100
 
-            color: "white"
+            color: "#1a2226"
         }
 
         Rectangle {
@@ -38,6 +40,13 @@ Item {
             height: 100
 
             color: "#3288EA"
+
+            Text {
+                text: "Przewidywane\n0"
+                horizontalAlignment: Text.AlignHCenter
+                font.pixelSize: 14
+                anchors.centerIn: parent
+            }
         }
 
         Rectangle {
@@ -46,6 +55,13 @@ Item {
             height: 100
 
             color: "#3288EA"
+
+            Text {
+                text: "Przewidywane\n1"
+                horizontalAlignment: Text.AlignHCenter
+                font.pixelSize: 14
+                anchors.centerIn: parent
+            }
         }
 
         Rectangle {
@@ -54,6 +70,13 @@ Item {
             height: 100
 
             color: "#3288EA"
+
+            Text {
+                text: "Faktyczne\n0"
+                horizontalAlignment: Text.AlignHCenter
+                font.pixelSize: 14
+                anchors.centerIn: parent
+            }
         }
 
         Rectangle {
@@ -62,6 +85,13 @@ Item {
             height: 100
 
             color: "#3288EA"
+
+            Text {
+                text: modelAnalysis ? modelAnalysis.tn : 0
+                horizontalAlignment: Text.AlignHCenter
+                font.pixelSize: 14
+                anchors.centerIn: parent
+            }
         }
 
         Rectangle {
@@ -70,6 +100,13 @@ Item {
             height: 100
 
             color: "#3288EA"
+
+            Text {
+                text: modelAnalysis ? modelAnalysis.fp : 0
+                horizontalAlignment: Text.AlignHCenter
+                font.pixelSize: 14
+                anchors.centerIn: parent
+            }
         }
 
         Rectangle {
@@ -78,6 +115,13 @@ Item {
             height: 100
 
             color: "#3288EA"
+
+            Text {
+                text: "Faktyczne\n1"
+                horizontalAlignment: Text.AlignHCenter
+                font.pixelSize: 14
+                anchors.centerIn: parent
+            }
         }
 
         Rectangle {
@@ -86,6 +130,13 @@ Item {
             height: 100
 
             color: "#3288EA"
+
+            Text {
+                text: modelAnalysis ? modelAnalysis.fn : 0
+                horizontalAlignment: Text.AlignHCenter
+                font.pixelSize: 14
+                anchors.centerIn: parent
+            }
         }
 
         Rectangle {
@@ -94,6 +145,13 @@ Item {
             height: 100
 
             color: "#3288EA"
+
+            Text {
+                text: modelAnalysis ? modelAnalysis.tp : 0
+                horizontalAlignment: Text.AlignHCenter
+                font.pixelSize: 14
+                anchors.centerIn: parent
+            }
         }
 
     }

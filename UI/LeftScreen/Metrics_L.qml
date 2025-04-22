@@ -3,6 +3,8 @@ import QtQuick.Layouts
 import QtQuick.Controls
 import QtQuick.Controls.Basic
 
+import ModelAnalysis
+
 Item {
     width: leftScroll.width
     height: grid2.height
@@ -27,14 +29,14 @@ Item {
         }
 
         TextField {
-            text: "5"
+            text: modelAnalysis ? modelAnalysis.accuracy.toFixed(2) + "%" : 0
             font.pixelSize: 18
             color: "white"
             readOnly: true
-            width: 50
+            width: 100
 
             background: Rectangle {
-                implicitWidth: 50
+                implicitWidth: 100
                 implicitHeight: 20
                 color: "#1a2226"
                 border.color: "transparent"
@@ -49,14 +51,14 @@ Item {
         }
 
         TextField {
-            text: "5"
+            text: modelAnalysis ? modelAnalysis.recall.toFixed(2) + "%"  : 0
             font.pixelSize: 18
             color: "white"
             readOnly: true
-            width: 50
+            width: 100
 
             background: Rectangle {
-                implicitWidth: 50
+                implicitWidth: 100
                 implicitHeight: 20
                 color: "#1a2226"
                 border.color: "transparent"
@@ -71,14 +73,14 @@ Item {
         }
 
         TextField {
-            text: "5"
+            text: modelAnalysis ? modelAnalysis.specifity.toFixed(2) + "%"  : 0
             font.pixelSize: 18
             color: "white"
             readOnly: true
-            width: 50
+            width: 100
 
             background: Rectangle {
-                implicitWidth: 50
+                implicitWidth: 100
                 implicitHeight: 20
                 color: "#1a2226"
                 border.color: "transparent"
@@ -93,14 +95,14 @@ Item {
         }
 
         TextField {
-            text: "5"
+            text: modelAnalysis ? modelAnalysis.precision.toFixed(2) + "%"  : 0
             font.pixelSize: 18
             color: "white"
             readOnly: true
-            width: 50
+            width: 100
 
             background: Rectangle {
-                implicitWidth: 50
+                implicitWidth: 100
                 implicitHeight: 20
                 color: "#1a2226"
                 border.color: "transparent"
@@ -115,14 +117,14 @@ Item {
         }
 
         TextField {
-            text: "5"
+            text: modelAnalysis ? modelAnalysis.f1.toFixed(2) + "%"  : 0
             font.pixelSize: 18
             color: "white"
             readOnly: true
-            width: 50
+            width: 100
 
             background: Rectangle {
-                implicitWidth: 50
+                implicitWidth: 100
                 implicitHeight: 20
                 color: "#1a2226"
                 border.color: "transparent"
