@@ -33,7 +33,7 @@ Item {
             font.pixelSize: 18
             color: "white"
             readOnly: true
-            width: 100
+            Layout.preferredWidth: 100
 
             background: Rectangle {
                 implicitWidth: 100
@@ -55,7 +55,7 @@ Item {
             font.pixelSize: 18
             color: "white"
             readOnly: true
-            width: 100
+            Layout.preferredWidth: 100
 
             background: Rectangle {
                 implicitWidth: 100
@@ -77,7 +77,7 @@ Item {
             font.pixelSize: 18
             color: "white"
             readOnly: true
-            width: 100
+            Layout.preferredWidth: 100
 
             background: Rectangle {
                 implicitWidth: 100
@@ -99,7 +99,7 @@ Item {
             font.pixelSize: 18
             color: "white"
             readOnly: true
-            width: 100
+            Layout.preferredWidth: 100
 
             background: Rectangle {
                 implicitWidth: 100
@@ -121,10 +121,32 @@ Item {
             font.pixelSize: 18
             color: "white"
             readOnly: true
-            width: 100
+            Layout.preferredWidth: 100
 
             background: Rectangle {
                 implicitWidth: 100
+                implicitHeight: 20
+                color: "#1a2226"
+                border.color: "transparent"
+            }
+        }
+
+        Text {
+            text: "AUC: "
+            font.pixelSize: 18
+            color: "white"
+
+        }
+
+        TextField {
+            text: modelAnalysis ? modelAnalysis.auc.toFixed(2) : 0
+            font.pixelSize: 18
+            color: "white"
+            readOnly: true
+            Layout.preferredWidth: 50
+
+            background: Rectangle {
+                implicitWidth: 50
                 implicitHeight: 20
                 color: "#1a2226"
                 border.color: "transparent"

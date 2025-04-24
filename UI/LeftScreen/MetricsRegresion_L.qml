@@ -31,7 +31,7 @@ Item {
             font.pixelSize: 18
             color: "white"
             readOnly: true
-            width: 50
+            Layout.preferredWidth: 50
 
             background: Rectangle {
                 implicitWidth: 50

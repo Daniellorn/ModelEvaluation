@@ -5,6 +5,7 @@
 
 #include "Backend/Csvreader.h"
 #include "Backend/modelanalysis.h"
+#include "Backend/modelanalysisv2.h"
 
 int main(int argc, char *argv[])
 {
@@ -16,6 +17,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<CSVReader>("CSVReader", 1, 0, "CSVReader");
 
     qmlRegisterType<ModelAnalysis>("ModelAnalysis", 1, 0, "ModelAnalysis");
+    qmlRegisterType<ModelAnalysisV2>("ModelAnalysis2", 1, 0, "ModelAnalysis2");
 
     QQmlApplicationEngine engine;
 
@@ -29,9 +31,10 @@ int main(int argc, char *argv[])
         Qt::QueuedConnection);
 
     ModelAnalysis analysis(nullptr, {});
+    ModelAnalysisV2 analysisV2(nullptr, {});
 
     engine.rootContext()->setContextProperty("modelAnalysis", &analysis);
-
+    engine.rootContext()->setContextProperty("modelAnalysisV2", &analysisV2);
 
     engine.loadFromModule("ZadanieProgramistyczneED", "Main");
 
@@ -41,6 +44,12 @@ int main(int argc, char *argv[])
                          analysis.SetData(data);
     });
 
+
+    QObject::connect(&reader, &CSVReader::fileLoaded2,
+                     [&analysisV2](std::vector<DataRow2>& data)
+                     {
+                         analysisV2.SetData(data);
+                     });
 
 
 

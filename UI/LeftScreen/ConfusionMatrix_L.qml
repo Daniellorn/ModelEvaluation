@@ -28,16 +28,16 @@ Item {
 
         Rectangle {
             id: firstRowCol
-            width: 100
-            height: 100
+            Layout.preferredWidth: 100
+            Layout.preferredHeight: 100
 
             color: "#1a2226"
         }
 
         Rectangle {
             id: firstRowSecondCol
-            width: 100
-            height: 100
+            Layout.preferredWidth: 100
+            Layout.preferredHeight: 100
 
             color: "#3288EA"
 
@@ -51,8 +51,8 @@ Item {
 
         Rectangle {
             id: firstRowThirdCol
-            width: 100
-            height: 100
+            Layout.preferredWidth: 100
+            Layout.preferredHeight: 100
 
             color: "#3288EA"
 
@@ -66,8 +66,8 @@ Item {
 
         Rectangle {
             id: secondRowCol
-            width: 100
-            height: 100
+            Layout.preferredWidth: 100
+            Layout.preferredHeight: 100
 
             color: "#3288EA"
 
@@ -81,8 +81,8 @@ Item {
 
         Rectangle {
             id: secondRowSecondCol
-            width: 100
-            height: 100
+            Layout.preferredWidth: 100
+            Layout.preferredHeight: 100
 
             color: "#3288EA"
 
@@ -96,8 +96,8 @@ Item {
 
         Rectangle {
             id: secondRowThirdCol
-            width: 100
-            height: 100
+            Layout.preferredWidth: 100
+            Layout.preferredHeight: 100
 
             color: "#3288EA"
 
@@ -111,8 +111,8 @@ Item {
 
         Rectangle {
             id: thirdRowCol
-            width: 100
-            height: 100
+            Layout.preferredWidth: 100
+            Layout.preferredHeight: 100
 
             color: "#3288EA"
 
@@ -126,8 +126,8 @@ Item {
 
         Rectangle {
             id: thirdRowSecondCol
-            width: 100
-            height: 100
+            Layout.preferredWidth: 100
+            Layout.preferredHeight: 100
 
             color: "#3288EA"
 
@@ -141,8 +141,8 @@ Item {
 
         Rectangle {
             id: thirdRowThirdCol
-            width: 100
-            height: 100
+            Layout.preferredWidth: 100
+            Layout.preferredHeight: 100
 
             color: "#3288EA"
 

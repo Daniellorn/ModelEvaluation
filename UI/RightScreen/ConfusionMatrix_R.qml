@@ -2,6 +2,8 @@ import QtQuick 2.15
 
 import QtQuick.Layouts
 
+import ModelAnalysis
+
 Item {
 
     width: rightScroll.width
@@ -25,17 +27,17 @@ Item {
         columnSpacing: 5
 
         Rectangle {
-            id: firstRowCol
-            width: 100
-            height: 100
+            id: firstRowCol2
+            Layout.preferredWidth: 100
+            Layout.preferredHeight: 100
 
             color: "#1a2226"
         }
 
         Rectangle {
-            id: firstRowSecondCol
-            width: 100
-            height: 100
+            id: firstRowSecondCol2
+            Layout.preferredWidth: 100
+            Layout.preferredHeight: 100
 
             color: "#3288EA"
 
@@ -48,9 +50,9 @@ Item {
         }
 
         Rectangle {
-            id: firstRowThirdCol
-            width: 100
-            height: 100
+            id: firstRowThirdCol2
+            Layout.preferredWidth: 100
+            Layout.preferredHeight: 100
 
             color: "#3288EA"
 
@@ -63,9 +65,9 @@ Item {
         }
 
         Rectangle {
-            id: secondRowCol
-            width: 100
-            height: 100
+            id: secondRowCol2
+            Layout.preferredWidth: 100
+            Layout.preferredHeight: 100
 
             color: "#3288EA"
 
@@ -78,14 +80,14 @@ Item {
         }
 
         Rectangle {
-            id: secondRowSecondCol
-            width: 100
-            height: 100
+            id: secondRowSecondCol2
+            Layout.preferredWidth: 100
+            Layout.preferredHeight: 100
 
             color: "#3288EA"
 
             Text {
-                text: "21"
+                text: modelAnalysis ? modelAnalysis.tn2 : 0
                 horizontalAlignment: Text.AlignHCenter
                 font.pixelSize: 14
                 anchors.centerIn: parent
@@ -93,14 +95,14 @@ Item {
         }
 
         Rectangle {
-            id: secondRowThirdCol
-            width: 100
-            height: 100
+            id: secondRowThirdCol2
+            Layout.preferredWidth: 100
+            Layout.preferredHeight: 100
 
             color: "#3288EA"
 
             Text {
-                text: "37"
+                text: modelAnalysis ? modelAnalysis.fp2 : 0
                 horizontalAlignment: Text.AlignHCenter
                 font.pixelSize: 14
                 anchors.centerIn: parent
@@ -108,9 +110,9 @@ Item {
         }
 
         Rectangle {
-            id: thirdRowCol
-            width: 100
-            height: 100
+            id: thirdRowCol2
+            Layout.preferredWidth: 100
+            Layout.preferredHeight: 100
 
             color: "#3288EA"
 
@@ -123,14 +125,14 @@ Item {
         }
 
         Rectangle {
-            id: thirdRowSecondCol
-            width: 100
-            height: 100
+            id: thirdRowSecondCol2
+            Layout.preferredWidth: 100
+            Layout.preferredHeight: 100
 
             color: "#3288EA"
 
             Text {
-                text: "37"
+                text: modelAnalysis ? modelAnalysis.fn2 : 0
                 horizontalAlignment: Text.AlignHCenter
                 font.pixelSize: 14
                 anchors.centerIn: parent
@@ -138,14 +140,14 @@ Item {
         }
 
         Rectangle {
-            id: thirdRowThirdCol
-            width: 100
-            height: 100
+            id: thirdRowThirdCol2
+            Layout.preferredWidth: 100
+            Layout.preferredHeight: 100
 
             color: "#3288EA"
 
             Text {
-                text: "21"
+                text: modelAnalysis ? modelAnalysis.tp2 : 0
                 horizontalAlignment: Text.AlignHCenter
                 font.pixelSize: 14
                 anchors.centerIn: parent

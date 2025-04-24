@@ -36,15 +36,25 @@ void CSVReader::PrintPath()
 void CSVReader::loadFileSlot(const QString& filePath)
 {
     m_Path = filePath.toStdString();
-    LoadFile(m_Path);
+    std::string filenameStr = m_Path.string();
+    std::string_view filename = filenameStr;
+
+    LoadFile(m_Path, filename);
 
     PrintPath();
 
-    emit fileLoaded(m_Data);
+    if (filename.find("klasyfikacja") != std::string_view::npos)
+    {
+        emit fileLoaded(m_Data);
+    }
+    else
+    {
+        emit fileLoaded2(m_Data2);
+    }
 
 }
 
-void CSVReader::LoadFile(const std::filesystem::path& path)
+void CSVReader::LoadFile(const std::filesystem::path& path, const std::string_view filenameView)
 {
     std::ifstream file(path);
 
@@ -52,28 +62,56 @@ void CSVReader::LoadFile(const std::filesystem::path& path)
 
     if (!file)
     {
+        qDebug() << path.string();
+
+        std::filesystem::path currentPath = std::filesystem::current_path();
+
+        qDebug() << currentPath.string();
+
         throw std::runtime_error("Nie można otworzyć pliku: " + path.string());
     }
 
     std::string line;
     std::getline(file, line);
 
-    while (std::getline(file, line))
+    if (filenameView.find("klasyfikacja") != std::string_view::npos)
     {
-        std::istringstream stream(line);
-        std::string Sincome, Sc50_pv, Sc50_prob1, Srf_pv,  Srf_prob1;
+        while (std::getline(file, line))
+        {
+            std::istringstream stream(line);
+            std::string Sincome, Sc50_pv, Sc50_prob1, Srf_pv,  Srf_prob1;
 
-        std::getline(stream, Sincome, ',');
-        std::getline(stream, Sc50_pv, ',');
-        std::getline(stream, Sc50_prob1, ',');
-        std::getline(stream, Srf_pv, ',');
-        std::getline(stream, Srf_prob1, ',');
+            std::getline(stream, Sincome, ',');
+            std::getline(stream, Sc50_pv, ',');
+            std::getline(stream, Sc50_prob1, ',');
+            std::getline(stream, Srf_pv, ',');
+            std::getline(stream, Srf_prob1, ',');
 
-        m_Data.emplace_back(
-            DataRow{EncodeValues(Sincome),EncodeValues(Sc50_pv),std::stof(Sc50_prob1),EncodeValues(Srf_pv),std::stof(Srf_prob1)});
+            m_Data.emplace_back(
+                DataRow{EncodeValues(Sincome),EncodeValues(Sc50_pv),std::stof(Sc50_prob1),EncodeValues(Srf_pv),std::stof(Srf_prob1)});
 
-        //lol--;
-        //if (lol <= 0) return;
+            //lol--;
+            //if (lol <= 0) return;
+        }
+    }
+
+    if (filenameView.find("regresja") != std::string_view::npos)
+    {
+        while (std::getline(file, line))
+        {
+            std::istringstream stream(line);
+            std::string real, expected1, expected2;
+
+            std::getline(stream, real, ',');
+            std::getline(stream, expected1, ',');
+            std::getline(stream, expected2, ',');
+
+            m_Data2.emplace_back(
+                DataRow2{std::stof(real),std::stof(expected1),std::stof(expected2)});
+
+            //lol--;
+            //if (lol <= 0) return;
+        }
     }
 }
 

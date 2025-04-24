@@ -31,6 +31,7 @@ qt_add_qml_module(appZadanieProgramistyczneED
         QML_FILES UI/RightScreen/MetricsRegresion_R.qml
         SOURCES Backend/Csvreader.h Backend/Csvreader.cpp
         SOURCES Backend/modelanalysis.h Backend/modelanalysis.cpp
+		SOURCES Backend/modelanalysisv2.h Backend/modelanalysisv2.cpp
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
@@ -42,6 +43,7 @@ set_target_properties(appZadanieProgramistyczneED PROPERTIES
     MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
     MACOSX_BUNDLE TRUE
     WIN32_EXECUTABLE TRUE
+	CXX_STANDARD 20
 )
 
 target_link_libraries(appZadanieProgramistyczneED

@@ -27,14 +27,14 @@ Item {
         }
 
         TextField {
-            text: "5"
+            text: modelAnalysis ? modelAnalysis.accuracy2.toFixed(2) + "%" : 0
             font.pixelSize: 18
             color: "white"
             readOnly: true
-            width: 50
+            Layout.preferredWidth: 100
 
             background: Rectangle {
-                implicitWidth: 50
+                implicitWidth: 100
                 implicitHeight: 20
                 color: "#1a2226"
                 border.color: "transparent"
@@ -49,14 +49,14 @@ Item {
         }
 
         TextField {
-            text: "5"
+            text: modelAnalysis ? modelAnalysis.recall2.toFixed(2) + "%"  : 0
             font.pixelSize: 18
             color: "white"
             readOnly: true
-            width: 50
+            Layout.preferredWidth: 100
 
             background: Rectangle {
-                implicitWidth: 50
+                implicitWidth: 100
                 implicitHeight: 20
                 color: "#1a2226"
                 border.color: "transparent"
@@ -71,14 +71,14 @@ Item {
         }
 
         TextField {
-            text: "5"
+            text: modelAnalysis ? modelAnalysis.specifity2.toFixed(2) + "%"  : 0
             font.pixelSize: 18
             color: "white"
             readOnly: true
-            width: 50
+            Layout.preferredWidth: 100
 
             background: Rectangle {
-                implicitWidth: 50
+                implicitWidth: 100
                 implicitHeight: 20
                 color: "#1a2226"
                 border.color: "transparent"
@@ -93,14 +93,14 @@ Item {
         }
 
         TextField {
-            text: "5"
+            text: modelAnalysis ? modelAnalysis.precision2.toFixed(2) + "%"  : 0
             font.pixelSize: 18
             color: "white"
             readOnly: true
-            width: 50
+            Layout.preferredWidth: 100
 
             background: Rectangle {
-                implicitWidth: 50
+                implicitWidth: 100
                 implicitHeight: 20
                 color: "#1a2226"
                 border.color: "transparent"
@@ -115,14 +115,36 @@ Item {
         }
 
         TextField {
-            text: "5"
+            text: modelAnalysis ? modelAnalysis.f12.toFixed(2) + "%"  : 0
             font.pixelSize: 18
             color: "white"
             readOnly: true
-            width: 50
+            Layout.preferredWidth: 100
 
             background: Rectangle {
-                implicitWidth: 50
+                implicitWidth: 100
+                implicitHeight: 20
+                color: "#1a2226"
+                border.color: "transparent"
+            }
+        }
+
+        Text {
+            text: "AUC: "
+            font.pixelSize: 18
+            color: "white"
+
+        }
+
+        TextField {
+            text: modelAnalysis ? modelAnalysis.auc2.toFixed(2) : 0
+            font.pixelSize: 18
+            color: "white"
+            readOnly: true
+            Layout.preferredWidth: 100
+
+            background: Rectangle {
+                implicitWidth: 100
                 implicitHeight: 20
                 color: "#1a2226"
                 border.color: "transparent"
