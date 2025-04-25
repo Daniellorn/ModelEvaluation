@@ -3,6 +3,8 @@ import QtQuick.Layouts
 import QtQuick.Controls
 import QtQuick.Controls.Basic
 
+import ModelAnalysis2
+
 Item {
     width: leftScroll.width
     height: grid2.height
@@ -27,14 +29,14 @@ Item {
         }
 
         TextField {
-            text: "5"
+            text: modelAnalysis2 ? modelAnalysis2.mae.toFixed(2) : 0
             font.pixelSize: 18
             color: "white"
             readOnly: true
-            Layout.preferredWidth: 50
+            Layout.preferredWidth: 100
 
             background: Rectangle {
-                implicitWidth: 50
+                implicitWidth: 100
                 implicitHeight: 20
                 color: "#1a2226"
                 border.color: "transparent"
@@ -49,14 +51,14 @@ Item {
         }
 
         TextField {
-            text: "5"
+            text: modelAnalysis2 ? modelAnalysis2.mape.toFixed(2) + "%" : 0
             font.pixelSize: 18
             color: "white"
             readOnly: true
-            width: 50
+            Layout.preferredWidth: 100
 
             background: Rectangle {
-                implicitWidth: 50
+                implicitWidth: 100
                 implicitHeight: 20
                 color: "#1a2226"
                 border.color: "transparent"
@@ -71,14 +73,14 @@ Item {
         }
 
         TextField {
-            text: "5"
+            text: modelAnalysis2 ? modelAnalysis2.mse.toFixed(2) : 0
             font.pixelSize: 18
             color: "white"
             readOnly: true
-            width: 50
+            Layout.preferredWidth: 100
 
             background: Rectangle {
-                implicitWidth: 50
+                implicitWidth: 100
                 implicitHeight: 20
                 color: "#1a2226"
                 border.color: "transparent"
@@ -93,14 +95,14 @@ Item {
         }
 
         TextField {
-            text: "5"
+            text: modelAnalysis2 ? modelAnalysis2.rmse.toFixed(2) : 0
             font.pixelSize: 18
             color: "white"
             readOnly: true
-            width: 50
+            Layout.preferredWidth: 100
 
             background: Rectangle {
-                implicitWidth: 50
+                implicitWidth: 100
                 implicitHeight: 20
                 color: "#1a2226"
                 border.color: "transparent"

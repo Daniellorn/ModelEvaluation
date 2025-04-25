@@ -129,7 +129,17 @@ Rectangle {
             Layout.topMargin: 15
 
             onClicked: {
-                modelAnalysis.calculate()
+
+                if (comboBox1.currentText === "Klasyfikacyjny")
+                {
+                    modelAnalysis.calculate()
+                }
+                else if (comboBox1.currentText === "Regresyjny")
+                {
+                    modelAnalysis2.calculate2()
+                }
+
+
             }
         }
 

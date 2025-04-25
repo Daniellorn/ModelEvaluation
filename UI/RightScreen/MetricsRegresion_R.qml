@@ -27,14 +27,14 @@ Item {
         }
 
         TextField {
-            text: "5"
+            text: modelAnalysis2 ? modelAnalysis2.mae2.toFixed(2) : 0
             font.pixelSize: 18
             color: "white"
             readOnly: true
-            width: 50
+            Layout.preferredWidth: 100
 
             background: Rectangle {
-                implicitWidth: 50
+                implicitWidth: 100
                 implicitHeight: 20
                 color: "#1a2226"
                 border.color: "transparent"
@@ -49,14 +49,14 @@ Item {
         }
 
         TextField {
-            text: "5"
+            text: modelAnalysis2 ? modelAnalysis2.mape2.toFixed(2) + "%" : 0
             font.pixelSize: 18
             color: "white"
             readOnly: true
-            width: 50
+            Layout.preferredWidth: 100
 
             background: Rectangle {
-                implicitWidth: 50
+                implicitWidth: 100
                 implicitHeight: 20
                 color: "#1a2226"
                 border.color: "transparent"
@@ -71,14 +71,14 @@ Item {
         }
 
         TextField {
-            text: "5"
+            text: modelAnalysis2 ? modelAnalysis2.mse2.toFixed(2) : 0
             font.pixelSize: 18
             color: "white"
             readOnly: true
-            width: 50
+            Layout.preferredWidth: 100
 
             background: Rectangle {
-                implicitWidth: 50
+                implicitWidth: 100
                 implicitHeight: 20
                 color: "#1a2226"
                 border.color: "transparent"
@@ -93,14 +93,14 @@ Item {
         }
 
         TextField {
-            text: "5"
+            text: modelAnalysis2 ? modelAnalysis2.rmse2.toFixed(2) : 0
             font.pixelSize: 18
             color: "white"
             readOnly: true
-            width: 50
+            Layout.preferredWidth: 100
 
             background: Rectangle {
-                implicitWidth: 50
+                implicitWidth: 100
                 implicitHeight: 20
                 color: "#1a2226"
                 border.color: "transparent"

@@ -2,7 +2,19 @@
 
 ModelAnalysisV2::ModelAnalysisV2(QObject *parent, const std::vector<DataRow2>& data)
     : QObject{parent},  m_FileData2(data)
-{}
+{
+
+    m_MAE = 0.0f;
+    m_MAPE = 0.0f;
+    m_MSE = 0.0f;
+    m_RMSE = 0.0f;
+
+    m_MAE2 = 0.0f;
+    m_MAPE2 = 0.0f;
+    m_MSE2 = 0.0f;
+    m_RMSE2 = 0.0f;
+
+}
 
 float ModelAnalysisV2::mae() const
 {

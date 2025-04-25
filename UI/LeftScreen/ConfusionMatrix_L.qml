@@ -31,7 +31,14 @@ Item {
             Layout.preferredWidth: 100
             Layout.preferredHeight: 100
 
-            color: "#1a2226"
+            color: "#3288EA"
+
+            Text {
+                text: "Macierz\npomyłek"
+                horizontalAlignment: Text.AlignHCenter
+                font.pixelSize: 14
+                anchors.centerIn: parent
+            }
         }
 
         Rectangle {

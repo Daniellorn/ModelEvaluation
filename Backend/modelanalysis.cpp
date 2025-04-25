@@ -134,7 +134,7 @@ float ModelAnalysis::auc2() const
 
 void ModelAnalysis::CalculateROCPoints1()
 {
-    std::vector<DataRow> temp = m_FileData;
+    auto temp = m_FileData;
 
     std::sort(temp.begin(), temp.end(), [](const DataRow& a, const DataRow& b)
               {
@@ -219,7 +219,7 @@ void ModelAnalysis::CalculateROCPoints1()
 void ModelAnalysis::CalculateROCPoints2()
 {
 
-    std::vector<DataRow> temp = m_FileData;
+    auto temp = m_FileData;
 
     std::sort(temp.begin(), temp.end(), [](const DataRow& a, const DataRow& b)
               {

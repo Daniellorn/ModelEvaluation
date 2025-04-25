@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
     ModelAnalysisV2 analysisV2(nullptr, {});
 
     engine.rootContext()->setContextProperty("modelAnalysis", &analysis);
-    engine.rootContext()->setContextProperty("modelAnalysisV2", &analysisV2);
+    engine.rootContext()->setContextProperty("modelAnalysis2", &analysisV2);
 
     engine.loadFromModule("ZadanieProgramistyczneED", "Main");
 
