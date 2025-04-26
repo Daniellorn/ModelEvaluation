@@ -75,8 +75,7 @@ void ModelAnalysisV2::CalculateRegression()
 
     for (const auto& row: m_FileData2)
     {
-        float pred = row.expected1;
-        float error = row.real - pred;
+        float error = row.real - row.expected1;
 
         sumAbs += std::abs(error);
         sumSq += error * error;
@@ -112,8 +111,7 @@ void ModelAnalysisV2::CalculateRegression2()
 
     for (const auto& row: m_FileData2)
     {
-        float pred = row.expected2;
-        float error = row.real - pred;
+        float error = row.real - row.expected2;
 
         sumAbs += std::abs(error);
         sumSq += error * error;
