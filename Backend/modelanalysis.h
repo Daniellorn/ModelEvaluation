@@ -13,59 +13,59 @@ class ModelAnalysis : public QObject
     Q_OBJECT
 
 
-    Q_PROPERTY(float accuracy READ accuracy NOTIFY accuracyChanged)
-    Q_PROPERTY(float specifity READ specifity NOTIFY specifityChanged)
-    Q_PROPERTY(float recall READ recall NOTIFY recallChanged)
-    Q_PROPERTY(float precision READ precision NOTIFY precisionChanged)
-    Q_PROPERTY(float f1 READ f1 NOTIFY f1Changed)
+    Q_PROPERTY(double accuracy READ accuracy NOTIFY accuracyChanged)
+    Q_PROPERTY(double specifity READ specifity NOTIFY specifityChanged)
+    Q_PROPERTY(double recall READ recall NOTIFY recallChanged)
+    Q_PROPERTY(double precision READ precision NOTIFY precisionChanged)
+    Q_PROPERTY(double f1 READ f1 NOTIFY f1Changed)
 
-    Q_PROPERTY(float accuracy2 READ accuracy2 NOTIFY accuracy2Changed)
-    Q_PROPERTY(float specifity2 READ specifity2 NOTIFY specifity2Changed)
-    Q_PROPERTY(float recall2 READ recall2 NOTIFY recall2Changed)
-    Q_PROPERTY(float precision2 READ precision2 NOTIFY precision2Changed)
-    Q_PROPERTY(float f12 READ f12 NOTIFY f12Changed)
+    Q_PROPERTY(double accuracy2 READ accuracy2 NOTIFY accuracy2Changed)
+    Q_PROPERTY(double specifity2 READ specifity2 NOTIFY specifity2Changed)
+    Q_PROPERTY(double recall2 READ recall2 NOTIFY recall2Changed)
+    Q_PROPERTY(double precision2 READ precision2 NOTIFY precision2Changed)
+    Q_PROPERTY(double f12 READ f12 NOTIFY f12Changed)
 
-    Q_PROPERTY(float tp READ tp NOTIFY tpChanged)
-    Q_PROPERTY(float tn READ tn NOTIFY tnChanged)
-    Q_PROPERTY(float fp READ fp NOTIFY fpChanged)
-    Q_PROPERTY(float fn READ fn NOTIFY fnChanged)
+    Q_PROPERTY(double tp READ tp NOTIFY tpChanged)
+    Q_PROPERTY(double tn READ tn NOTIFY tnChanged)
+    Q_PROPERTY(double fp READ fp NOTIFY fpChanged)
+    Q_PROPERTY(double fn READ fn NOTIFY fnChanged)
 
-    Q_PROPERTY(float tp2 READ tp2 NOTIFY tp2Changed)
-    Q_PROPERTY(float tn2 READ tn2 NOTIFY tn2Changed)
-    Q_PROPERTY(float fp2 READ fp2 NOTIFY fp2Changed)
-    Q_PROPERTY(float fn2 READ fn2 NOTIFY fn2Changed)
+    Q_PROPERTY(double tp2 READ tp2 NOTIFY tp2Changed)
+    Q_PROPERTY(double tn2 READ tn2 NOTIFY tn2Changed)
+    Q_PROPERTY(double fp2 READ fp2 NOTIFY fp2Changed)
+    Q_PROPERTY(double fn2 READ fn2 NOTIFY fn2Changed)
 
-    Q_PROPERTY(float auc READ auc NOTIFY aucChanged)
-    Q_PROPERTY(float auc2 READ auc2 NOTIFY auc2Changed)
+    Q_PROPERTY(double auc READ auc NOTIFY aucChanged)
+    Q_PROPERTY(double auc2 READ auc2 NOTIFY auc2Changed)
 
 
 public:
     explicit ModelAnalysis(QObject* parent = nullptr, const std::vector<DataRow>& data = {});
 
-    float accuracy() const;
-    float specifity() const;
-    float recall() const;
-    float precision() const;
-    float f1() const;
+    double accuracy() const;
+    double specifity() const;
+    double recall() const;
+    double precision() const;
+    double f1() const;
 
-    float accuracy2() const;
-    float specifity2() const;
-    float recall2() const;
-    float precision2() const;
-    float f12() const;
+    double accuracy2() const;
+    double specifity2() const;
+    double recall2() const;
+    double precision2() const;
+    double f12() const;
 
-    float tp() const;
-    float tn() const;
-    float fp() const;
-    float fn() const;
+    double tp() const;
+    double tn() const;
+    double fp() const;
+    double fn() const;
 
-    float tp2() const;
-    float tn2() const;
-    float fp2() const;
-    float fn2() const;
+    double tp2() const;
+    double tn2() const;
+    double fp2() const;
+    double fn2() const;
 
-    float auc() const;
-    float auc2() const;
+    double auc() const;
+    double auc2() const;
 
     void CalculateROCPoints1();
     void CalculateROCPoints2();
@@ -123,30 +123,30 @@ private:
     QList<QPointF> m_ROCPoints;
     QList<QPointF> m_ROCPoints2;
 
-    float m_TP;
-    float m_TN;
-    float m_FP;
-    float m_FN;
+    double m_TP;
+    double m_TN;
+    double m_FP;
+    double m_FN;
 
-    float m_TP2;
-    float m_TN2;
-    float m_FP2;
-    float m_FN2;
+    double m_TP2;
+    double m_TN2;
+    double m_FP2;
+    double m_FN2;
 
-    float m_accuracy;
-    float m_specifity;
-    float m_recall;
-    float m_precision;
-    float m_F1;
+    double m_accuracy;
+    double m_specifity;
+    double m_recall;
+    double m_precision;
+    double m_F1;
 
-    float m_accuracy2;
-    float m_specifity2;
-    float m_recall2;
-    float m_precision2;
-    float m_F12;
+    double m_accuracy2;
+    double m_specifity2;
+    double m_recall2;
+    double m_precision2;
+    double m_F12;
 
-    float m_AUC;
-    float m_AUC2;
+    double m_AUC;
+    double m_AUC2;
 };
 
 #endif // MODELANALYSIS_H

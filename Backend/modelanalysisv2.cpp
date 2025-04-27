@@ -4,54 +4,54 @@ ModelAnalysisV2::ModelAnalysisV2(QObject *parent, const std::vector<DataRow2>& d
     : QObject{parent},  m_FileData2(data)
 {
 
-    m_MAE = 0.0f;
-    m_MAPE = 0.0f;
-    m_MSE = 0.0f;
-    m_RMSE = 0.0f;
+    m_MAE = 0.0;
+    m_MAPE = 0.0;
+    m_MSE = 0.0;
+    m_RMSE = 0.0;
 
-    m_MAE2 = 0.0f;
-    m_MAPE2 = 0.0f;
-    m_MSE2 = 0.0f;
-    m_RMSE2 = 0.0f;
+    m_MAE2 = 0.0;
+    m_MAPE2 = 0.0;
+    m_MSE2 = 0.0;
+    m_RMSE2 = 0.0;
 
 }
 
-float ModelAnalysisV2::mae() const
+double ModelAnalysisV2::mae() const
 {
     return m_MAE;
 }
 
-float ModelAnalysisV2::mape() const
+double ModelAnalysisV2::mape() const
 {
     return m_MAPE;
 }
 
-float ModelAnalysisV2::mse() const
+double ModelAnalysisV2::mse() const
 {
     return m_MSE;
 }
 
-float ModelAnalysisV2::rmse() const
+double ModelAnalysisV2::rmse() const
 {
     return m_RMSE;
 }
 
-float ModelAnalysisV2::mae2() const
+double ModelAnalysisV2::mae2() const
 {
     return m_MAE2;
 }
 
-float ModelAnalysisV2::mape2() const
+double ModelAnalysisV2::mape2() const
 {
     return m_MAPE2;
 }
 
-float ModelAnalysisV2::mse2() const
+double ModelAnalysisV2::mse2() const
 {
     return m_MSE2;
 }
 
-float ModelAnalysisV2::rmse2() const
+double ModelAnalysisV2::rmse2() const
 {
     return m_RMSE2;
 }
@@ -69,18 +69,18 @@ void ModelAnalysisV2::SetData(std::vector<DataRow2> &data)
 
 void ModelAnalysisV2::CalculateRegression()
 {
-    float sumAbs = 0.0f;
-    float sumAbsPerc = 0.0f;
-    float sumSq = 0.0f;
+    double sumAbs = 0.0;
+    double sumAbsPerc = 0.0;
+    double sumSq = 0.0;
 
     for (const auto& row: m_FileData2)
     {
-        float error = row.real - row.expected1;
+        double error = row.real - row.expected1;
 
         sumAbs += std::abs(error);
         sumSq += error * error;
 
-        if (row.real != 0.0f)
+        if (row.real != 0.0)
         {
             sumAbsPerc += std::abs(error / row.real);
         }
@@ -94,7 +94,7 @@ void ModelAnalysisV2::CalculateRegression()
         m_MAE = sumAbs / n;
         m_MSE = sumSq / n;
         m_RMSE = std::sqrt(m_MSE);
-        m_MAPE = (sumAbsPerc / n) * 100.0f;
+        m_MAPE = (sumAbsPerc / n) * 100.0;
     }
 
     emit maeChanged();
@@ -105,18 +105,18 @@ void ModelAnalysisV2::CalculateRegression()
 
 void ModelAnalysisV2::CalculateRegression2()
 {
-    float sumAbs = 0.0f;
-    float sumAbsPerc = 0.0f;
-    float sumSq = 0.0f;
+    double sumAbs = 0.0;
+    double sumAbsPerc = 0.0;
+    double sumSq = 0.0;
 
     for (const auto& row: m_FileData2)
     {
-        float error = row.real - row.expected2;
+        double error = row.real - row.expected2;
 
         sumAbs += std::abs(error);
         sumSq += error * error;
 
-        if (row.real != 0.0f)
+        if (row.real != 0.0)
         {
             sumAbsPerc += std::abs(error / row.real);
         }
@@ -130,7 +130,7 @@ void ModelAnalysisV2::CalculateRegression2()
         m_MAE2 = sumAbs / n;
         m_MSE2 = sumSq / n;
         m_RMSE2 = std::sqrt(m_MSE2);
-        m_MAPE2 = (sumAbsPerc / n) * 100.0f;
+        m_MAPE2 = (sumAbsPerc / n) * 100.0;
     }
 
     emit mae2Changed();

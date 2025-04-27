@@ -12,16 +12,16 @@ struct DataRow
 
     int income;
     int C50_PV;
-    float C50_prob1;
+    double C50_prob1;
     int rf_PV;
-    float rf_prob1;
+    double rf_prob1;
 };
 
 struct DataRow2
 {
-    float real;
-    float expected1;
-    float expected2;
+    double real;
+    double expected1;
+    double expected2;
 };
 
 class CSVReader: public QObject

@@ -32,102 +32,102 @@ ModelAnalysis::ModelAnalysis(QObject* parent, const std::vector<DataRow>& data):
     m_F12 = 0.0;
 }
 
-float ModelAnalysis::accuracy() const
+double ModelAnalysis::accuracy() const
 {
     return m_accuracy;
 }
 
-float ModelAnalysis::specifity() const
+double ModelAnalysis::specifity() const
 {
     return m_specifity;
 }
 
-float ModelAnalysis::recall() const
+double ModelAnalysis::recall() const
 {
     return m_recall;
 }
 
-float ModelAnalysis::precision() const
+double ModelAnalysis::precision() const
 {
     return m_precision;
 }
 
-float ModelAnalysis::f1() const
+double ModelAnalysis::f1() const
 {
     return m_F1;
 }
 
-float ModelAnalysis::accuracy2() const
+double ModelAnalysis::accuracy2() const
 {
     return m_accuracy2;
 }
 
-float ModelAnalysis::specifity2() const
+double ModelAnalysis::specifity2() const
 {
     return m_specifity2;
 }
 
-float ModelAnalysis::recall2() const
+double ModelAnalysis::recall2() const
 {
     return m_recall2;
 }
 
-float ModelAnalysis::precision2() const
+double ModelAnalysis::precision2() const
 {
     return m_precision2;
 }
 
-float ModelAnalysis::f12() const
+double ModelAnalysis::f12() const
 {
     return m_F12;
 }
 
-float ModelAnalysis::tp() const
+double ModelAnalysis::tp() const
 {
     return m_TP;
 }
 
-float ModelAnalysis::tn() const
+double ModelAnalysis::tn() const
 {
     return m_TN;
 }
 
-float ModelAnalysis::fp() const
+double ModelAnalysis::fp() const
 {
     return m_FP;
 }
 
-float ModelAnalysis::fn() const
+double ModelAnalysis::fn() const
 {
     return m_FN;
 }
 
-float ModelAnalysis::tp2() const
+double ModelAnalysis::tp2() const
 {
     return m_TP2;
 }
 
-float ModelAnalysis::tn2() const
+double ModelAnalysis::tn2() const
 {
     return m_TN2;
 }
 
-float ModelAnalysis::fp2() const
+double ModelAnalysis::fp2() const
 {
     return m_FP2;
 }
 
-float ModelAnalysis::fn2() const
+double ModelAnalysis::fn2() const
 {
     return m_FN2;
 }
 
-float ModelAnalysis::auc() const
+double ModelAnalysis::auc() const
 {
     return m_AUC;
 }
 
-float ModelAnalysis::auc2() const
+double ModelAnalysis::auc2() const
 {
     return m_AUC2;
 }
@@ -146,12 +146,12 @@ void ModelAnalysis::CalculateROCPoints1()
 
     for (int i = 0; i < temp.size(); i++)
     {
-        float threshold = temp[i].C50_prob1;
+        double threshold = temp[i].C50_prob1;
 
         auto [TP, FP, TN, FN] = std::transform_reduce(
             std::execution::par,
             temp.begin(), temp.end(),
-            std::tuple<float, float, float, float>{0.0f, 0.0f, 0.0f, 0.0f },
+            std::tuple<double, double, double, double>{0.0, 0.0, 0.0, 0.0 },
             [](const auto& a, const auto& b)
             {
                 return std::tuple{
@@ -167,16 +167,16 @@ void ModelAnalysis::CalculateROCPoints1()
                 bool predicted = row.C50_prob1 >= threshold;
                 bool actual = row.income == 1;
 
-                if (predicted && actual) return std::tuple{1.0f, 0.0f, 0.0f, 0.0f};
-                if (predicted && !actual) return std::tuple{0.0f, 1.0f, 0.0f, 0.0f};
-                if (!predicted && !actual) return std::tuple{0.0f, 0.0f, 1.0f, 0.0f};
+                if (predicted && actual) return std::tuple{1.0, 0.0, 0.0, 0.0};
+                if (predicted && !actual) return std::tuple{0.0, 1.0, 0.0, 0.0};
+                if (!predicted && !actual) return std::tuple{0.0, 0.0, 1.0, 0.0};
 
-                return std::tuple{0.0f, 0.0f, 0.0f, 1.0f};
+                return std::tuple{0.0, 0.0, 0.0, 1.0};
             });
 
 
 
-       // float TP = 0, FP = 0, TN = 0, FN = 0;
+       // double TP = 0, FP = 0, TN = 0, FN = 0;
 
        // for (int j = 0; j < temp.size(); j++)
        // {
@@ -201,8 +201,8 @@ void ModelAnalysis::CalculateROCPoints1()
        //     }
        // }
 
-        float recall = (TP + FN) > 0 ? TP / (TP + FN) : 0.0;
-        float fpr = (FP + TN) > 0 ? FP / (FP + TN) : 0.0;
+        double recall = (TP + FN) > 0 ? TP / (TP + FN) : 0.0;
+        double fpr = (FP + TN) > 0 ? FP / (FP + TN) : 0.0;
 
 
         //qDebug() << fpr << " " << recall << "\n";
@@ -231,12 +231,12 @@ void ModelAnalysis::CalculateROCPoints2()
 
     for (int i = 0; i < temp.size(); i++)
     {
-        float threshold = temp[i].rf_prob1;
+        double threshold = temp[i].rf_prob1;
 
         auto [TP, FP, TN, FN] = std::transform_reduce(
             std::execution::par,
             temp.begin(), temp.end(),
-            std::tuple<float, float, float, float>{0.0f, 0.0f, 0.0f, 0.0f },
+            std::tuple<double, double, double, double>{0.0, 0.0, 0.0, 0.0 },
             [](const auto& a, const auto& b)
             {
                 return std::tuple{
@@ -252,16 +252,16 @@ void ModelAnalysis::CalculateROCPoints2()
                 bool predicted = row.rf_prob1 >= threshold;
                 bool actual = row.income == 1;
 
-                if (predicted && actual) return std::tuple{1.0f, 0.0f, 0.0f, 0.0f};
-                if (predicted && !actual) return std::tuple{0.0f, 1.0f, 0.0f, 0.0f};
-                if (!predicted && !actual) return std::tuple{0.0f, 0.0f, 1.0f, 0.0f};
+                if (predicted && actual) return std::tuple{1.0, 0.0, 0.0, 0.0};
+                if (predicted && !actual) return std::tuple{0.0, 1.0, 0.0, 0.0};
+                if (!predicted && !actual) return std::tuple{0.0, 0.0, 1.0, 0.0};
 
-                return std::tuple{0.0f, 0.0f, 0.0f, 1.0f};
+                return std::tuple{0.0, 0.0, 0.0, 1.0};
             });
 
 
 
-        // float TP = 0, FP = 0, TN = 0, FN = 0;
+        // double TP = 0, FP = 0, TN = 0, FN = 0;
 
         // for (int j = 0; j < temp.size(); j++)
         // {
@@ -286,8 +286,8 @@ void ModelAnalysis::CalculateROCPoints2()
         //     }
         // }
 
-        float recall = (TP + FN) > 0 ? TP / (TP + FN) : 0.0;
-        float fpr = (FP + TN) > 0 ? FP / (FP + TN) : 0.0;
+        double recall = (TP + FN) > 0 ? TP / (TP + FN) : 0.0;
+        double fpr = (FP + TN) > 0 ? FP / (FP + TN) : 0.0;
 
         m_ROCPoints2.append(QPointF(fpr, recall));
     }
@@ -410,26 +410,26 @@ void ModelAnalysis::CalculateAccuracy()
 {
     qDebug() << m_TN << " " << m_TP << " " << m_FN << " " << m_FP << "\n";
 
-    m_accuracy = (m_TN + m_TP) / (m_TN + m_TP + m_FN + m_FP) * 100.0f;
-    m_accuracy2 = (m_TN2 + m_TP2) / (m_TN2 + m_TP2 + m_FN2 + m_FP2) * 100.0f;
+    m_accuracy = (m_TN + m_TP) / (m_TN + m_TP + m_FN + m_FP) * 100.0;
+    m_accuracy2 = (m_TN2 + m_TP2) / (m_TN2 + m_TP2 + m_FN2 + m_FP2) * 100.0;
 }
 
 void ModelAnalysis::CalculateSpecifity()
 {
-    m_specifity = m_TN / (m_TN + m_FP) * 100.0f;
-    m_specifity2 = m_TN2 / (m_TN2 + m_FP2) * 100.0f;
+    m_specifity = m_TN / (m_TN + m_FP) * 100.0;
+    m_specifity2 = m_TN2 / (m_TN2 + m_FP2) * 100.0;
 }
 
 void ModelAnalysis::CalculateRecall()
 {
-    m_recall = m_TP / (m_FN + m_TP) * 100.0f;
-    m_recall2 = m_TP2 / (m_FN2 + m_TP2) * 100.0f;
+    m_recall = m_TP / (m_FN + m_TP) * 100.0;
+    m_recall2 = m_TP2 / (m_FN2 + m_TP2) * 100.0;
 }
 
 void ModelAnalysis::CalculatePrecision()
 {
-    m_precision = m_TP / (m_FP + m_TP) * 100.0f;
-    m_precision2 = m_TP2 / (m_FP2 + m_TP2) * 100.0f;
+    m_precision = m_TP / (m_FP + m_TP) * 100.0;
+    m_precision2 = m_TP2 / (m_FP2 + m_TP2) * 100.0;
 }
 
 void ModelAnalysis::CalculateF1()
@@ -440,27 +440,27 @@ void ModelAnalysis::CalculateF1()
 
 void ModelAnalysis::CalculateAUC()
 {
-    float auc = 0.0f;
-    float auc2 = 0.0f;
+    double auc = 0.0;
+    double auc2 = 0.0;
 
     for (int i = 1; i < m_ROCPoints.size(); i++)
     {
-        float x1 = m_ROCPoints[i - 1].x();
-        float y1 = m_ROCPoints[i - 1].y();
-        float x2 = m_ROCPoints[i].x();
-        float y2 = m_ROCPoints[i].y();
+        double x1 = m_ROCPoints[i - 1].x();
+        double y1 = m_ROCPoints[i - 1].y();
+        double x2 = m_ROCPoints[i].x();
+        double y2 = m_ROCPoints[i].y();
 
-        auc += (x2 - x1) * (y1 + y2) / 2.0f;
+        auc += (x2 - x1) * (y1 + y2) / 2.0;
     }
 
     for (int i = 1; i < m_ROCPoints2.size(); i++)
     {
-        float x1 = m_ROCPoints2[i - 1].x();
-        float y1 = m_ROCPoints2[i - 1].y();
-        float x2 = m_ROCPoints2[i].x();
-        float y2 = m_ROCPoints2[i].y();
+        double x1 = m_ROCPoints2[i - 1].x();
+        double y1 = m_ROCPoints2[i - 1].y();
+        double x2 = m_ROCPoints2[i].x();
+        double y2 = m_ROCPoints2[i].y();
 
-        auc2 += (x2 - x1) * (y1 + y2) / 2.0f;
+        auc2 += (x2 - x1) * (y1 + y2) / 2.0;
     }
 
     m_AUC = auc;
