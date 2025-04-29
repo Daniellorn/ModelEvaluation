@@ -3,6 +3,8 @@ import QtQuick.Layouts
 import QtQuick.Controls
 import QtQuick.Controls.Basic
 
+import QtCharts
+
 import ModelAnalysis2
 
 Item {
@@ -39,7 +41,7 @@ Item {
                 implicitWidth: 100
                 implicitHeight: 20
                 color: "#1a2226"
-                border.color: "transparent"
+                border.color: (modelAnalysis2 && modelAnalysis2.mae>= modelAnalysis2.mae2) ? "green" : "red"
             }
         }
 
@@ -61,7 +63,7 @@ Item {
                 implicitWidth: 100
                 implicitHeight: 20
                 color: "#1a2226"
-                border.color: "transparent"
+                border.color: (modelAnalysis2 && modelAnalysis2.mape>= modelAnalysis2.mape2) ? "green" : "red"
             }
         }
 
@@ -83,7 +85,7 @@ Item {
                 implicitWidth: 100
                 implicitHeight: 20
                 color: "#1a2226"
-                border.color: "transparent"
+                border.color: (modelAnalysis2 && modelAnalysis2.mse>= modelAnalysis2.mse2) ? "green" : "red"
             }
         }
 
@@ -105,9 +107,8 @@ Item {
                 implicitWidth: 100
                 implicitHeight: 20
                 color: "#1a2226"
-                border.color: "transparent"
+                border.color: (modelAnalysis2 && modelAnalysis2.rmse>= modelAnalysis2.rmse2) ? "green" : "red"
             }
         }
-
     }
 }

@@ -39,7 +39,7 @@ Item {
                 implicitWidth: 100
                 implicitHeight: 20
                 color: "#1a2226"
-                border.color: "transparent"
+                border.color: (modelAnalysis && modelAnalysis.accuracy>= modelAnalysis.accuracy2) ? "green" : "red"
             }
         }
 
@@ -61,7 +61,7 @@ Item {
                 implicitWidth: 100
                 implicitHeight: 20
                 color: "#1a2226"
-                border.color: "transparent"
+                border.color: (modelAnalysis && modelAnalysis.recall>= modelAnalysis.recall2) ? "green" : "red"
             }
         }
 
@@ -83,7 +83,7 @@ Item {
                 implicitWidth: 100
                 implicitHeight: 20
                 color: "#1a2226"
-                border.color: "transparent"
+                border.color:  (modelAnalysis && modelAnalysis.specifity>= modelAnalysis.specifity2) ? "green" : "red"
             }
         }
 
@@ -105,7 +105,7 @@ Item {
                 implicitWidth: 100
                 implicitHeight: 20
                 color: "#1a2226"
-                border.color: "transparent"
+                border.color:  (modelAnalysis && modelAnalysis.precision>= modelAnalysis.precision2) ? "green" : "red"
             }
         }
 
@@ -127,7 +127,7 @@ Item {
                 implicitWidth: 100
                 implicitHeight: 20
                 color: "#1a2226"
-                border.color: "transparent"
+                border.color:  (modelAnalysis && modelAnalysis.f1>= modelAnalysis.f12) ? "green" : "red"
             }
         }
 
@@ -143,13 +143,13 @@ Item {
             font.pixelSize: 18
             color: "white"
             readOnly: true
-            Layout.preferredWidth: 50
+            Layout.preferredWidth: 100
 
             background: Rectangle {
-                implicitWidth: 50
+                implicitWidth: 100
                 implicitHeight: 20
                 color: "#1a2226"
-                border.color: "transparent"
+                border.color:(modelAnalysis && modelAnalysis.auc >= modelAnalysis.auc2) ? "green" : "red"
             }
         }
     }

@@ -37,7 +37,7 @@ Item {
                 implicitWidth: 100
                 implicitHeight: 20
                 color: "#1a2226"
-                border.color: "transparent"
+                border.color: (modelAnalysis && modelAnalysis.accuracy2>= modelAnalysis.accuracy) ? "green" : "red"
             }
         }
 
@@ -59,7 +59,7 @@ Item {
                 implicitWidth: 100
                 implicitHeight: 20
                 color: "#1a2226"
-                border.color: "transparent"
+                border.color: (modelAnalysis && modelAnalysis.recall2>= modelAnalysis.recall) ? "green" : "red"
             }
         }
 
@@ -81,7 +81,7 @@ Item {
                 implicitWidth: 100
                 implicitHeight: 20
                 color: "#1a2226"
-                border.color: "transparent"
+                border.color: (modelAnalysis && modelAnalysis.specifity2>= modelAnalysis.specifity) ? "green" : "red"
             }
         }
 
@@ -103,7 +103,7 @@ Item {
                 implicitWidth: 100
                 implicitHeight: 20
                 color: "#1a2226"
-                border.color: "transparent"
+                border.color: (modelAnalysis && modelAnalysis.precision2>= modelAnalysis.precision) ? "green" : "red"
             }
         }
 
@@ -125,7 +125,7 @@ Item {
                 implicitWidth: 100
                 implicitHeight: 20
                 color: "#1a2226"
-                border.color: "transparent"
+                border.color: (modelAnalysis && modelAnalysis.f12>= modelAnalysis.f1) ? "green" : "red"
             }
         }
 
@@ -147,7 +147,7 @@ Item {
                 implicitWidth: 100
                 implicitHeight: 20
                 color: "#1a2226"
-                border.color: "transparent"
+                border.color: (modelAnalysis && modelAnalysis.auc2 >= modelAnalysis.auc) ? "green" : "red"
             }
         }
     }
