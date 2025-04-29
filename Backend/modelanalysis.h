@@ -18,12 +18,14 @@ class ModelAnalysis : public QObject
     Q_PROPERTY(double recall READ recall NOTIFY recallChanged)
     Q_PROPERTY(double precision READ precision NOTIFY precisionChanged)
     Q_PROPERTY(double f1 READ f1 NOTIFY f1Changed)
+    Q_PROPERTY(double errorRate READ errorRate NOTIFY errorRateChanged)
 
     Q_PROPERTY(double accuracy2 READ accuracy2 NOTIFY accuracy2Changed)
     Q_PROPERTY(double specifity2 READ specifity2 NOTIFY specifity2Changed)
     Q_PROPERTY(double recall2 READ recall2 NOTIFY recall2Changed)
     Q_PROPERTY(double precision2 READ precision2 NOTIFY precision2Changed)
     Q_PROPERTY(double f12 READ f12 NOTIFY f12Changed)
+    Q_PROPERTY(double errorRate2 READ errorRate2 NOTIFY errorRate2Changed)
 
     Q_PROPERTY(double tp READ tp NOTIFY tpChanged)
     Q_PROPERTY(double tn READ tn NOTIFY tnChanged)
@@ -47,12 +49,14 @@ public:
     double recall() const;
     double precision() const;
     double f1() const;
+    double errorRate() const;
 
     double accuracy2() const;
     double specifity2() const;
     double recall2() const;
     double precision2() const;
     double f12() const;
+    double errorRate2() const;
 
     double tp() const;
     double tn() const;
@@ -84,12 +88,14 @@ signals:
     void recallChanged();
     void precisionChanged();
     void f1Changed();
+    void errorRateChanged();
 
     void accuracy2Changed();
     void specifity2Changed();
     void recall2Changed();
     void precision2Changed();
     void f12Changed();
+    void errorRate2Changed();
 
     void tpChanged();
     void tnChanged();
@@ -116,6 +122,7 @@ private:
     void CalculatePrecision();
     void CalculateF1();
     void CalculateAUC();
+    void CalculateErrorRate();
 
 private:
     std::vector<DataRow> m_FileData;
@@ -138,12 +145,14 @@ private:
     double m_recall;
     double m_precision;
     double m_F1;
+    double m_errorRate;
 
     double m_accuracy2;
     double m_specifity2;
     double m_recall2;
     double m_precision2;
     double m_F12;
+    double m_errorRate2;
 
     double m_AUC;
     double m_AUC2;

@@ -24,12 +24,14 @@ ModelAnalysis::ModelAnalysis(QObject* parent, const std::vector<DataRow>& data):
     m_recall = 0.0;
     m_precision = 0.0;
     m_F1 = 0.0;
+    m_errorRate = 0.0;
 
     m_accuracy2 = 0.0;
     m_specifity2 = 0.0;
     m_recall2 = 0.0;
     m_precision2 = 0.0;
     m_F12 = 0.0;
+    m_errorRate2 = 0.0;
 }
 
 double ModelAnalysis::accuracy() const
@@ -57,6 +59,11 @@ double ModelAnalysis::f1() const
     return m_F1;
 }
 
+double ModelAnalysis::errorRate() const
+{
+    return m_errorRate;
+}
+
 double ModelAnalysis::accuracy2() const
 {
     return m_accuracy2;
@@ -80,6 +87,11 @@ double ModelAnalysis::precision2() const
 double ModelAnalysis::f12() const
 {
     return m_F12;
+}
+
+double ModelAnalysis::errorRate2() const
+{
+    return m_errorRate2;
 }
 
 double ModelAnalysis::tp() const
@@ -305,6 +317,7 @@ void ModelAnalysis::calculate()
     CalculateRecall();
     CalculatePrecision();
     CalculateF1();
+    CalculateErrorRate();
 
     //qDebug() << m_accuracy << " " << m_specifity << " " << m_recall << " " << m_precision << " " << m_F1 << "\n";
 
@@ -313,6 +326,7 @@ void ModelAnalysis::calculate()
     emit recallChanged();
     emit precisionChanged();
     emit f1Changed();
+    emit errorRateChanged();
 
     emit tpChanged();
     emit tnChanged();
@@ -324,6 +338,7 @@ void ModelAnalysis::calculate()
     emit recall2Changed();
     emit precision2Changed();
     emit f12Changed();
+    emit errorRate2Changed();
 
     emit tp2Changed();
     emit tn2Changed();
@@ -467,4 +482,10 @@ void ModelAnalysis::CalculateAUC()
     m_AUC2 = auc2;
     emit aucChanged();
     emit auc2Changed();
+}
+
+void ModelAnalysis::CalculateErrorRate()
+{
+    m_errorRate = (m_FN + m_FP) / (m_TN + m_FP + m_FN + m_TP) * 100.0f;
+    m_errorRate2 = (m_FN2 + m_FP2) / (m_TN2 + m_FP2 + m_FN2 + m_TP2) * 100.0f;
 }

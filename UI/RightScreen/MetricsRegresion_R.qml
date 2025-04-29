@@ -37,7 +37,7 @@ Item {
                 implicitWidth: 100
                 implicitHeight: 20
                 color: "#1a2226"
-                border.color: (modelAnalysis2 && modelAnalysis2.mae2>= modelAnalysis2.mae) ? "green" : "red"
+                border.color: (modelAnalysis2 && modelAnalysis2.mae2 <= modelAnalysis2.mae) ? "green" : "red"
             }
         }
 
@@ -59,7 +59,7 @@ Item {
                 implicitWidth: 100
                 implicitHeight: 20
                 color: "#1a2226"
-                border.color:  (modelAnalysis2 && modelAnalysis2.mape2>= modelAnalysis2.mape) ? "green" : "red"
+                border.color:  (modelAnalysis2 && modelAnalysis2.mape2 <= modelAnalysis2.mape) ? "green" : "red"
             }
         }
 
@@ -81,7 +81,7 @@ Item {
                 implicitWidth: 100
                 implicitHeight: 20
                 color: "#1a2226"
-                border.color:  (modelAnalysis2 && modelAnalysis2.mse2>= modelAnalysis2.mse) ? "green" : "red"
+                border.color:  (modelAnalysis2 && modelAnalysis2.mse2 <= modelAnalysis2.mse) ? "green" : "red"
             }
         }
 
@@ -103,7 +103,7 @@ Item {
                 implicitWidth: 100
                 implicitHeight: 20
                 color: "#1a2226"
-                border.color:  (modelAnalysis2 && modelAnalysis2.rmse2>= modelAnalysis2.rmse) ? "green" : "red"
+                border.color:  (modelAnalysis2 && modelAnalysis2.rmse2 <= modelAnalysis2.rmse) ? "green" : "red"
             }
         }
 

@@ -130,6 +130,29 @@ Item {
         }
 
         Text {
+            text: "Całkowity\nwspółczynnik błędu: "
+            font.pixelSize: 18
+            color: "white"
+            horizontalAlignment: Text.AlignHCenter
+
+        }
+
+        TextField {
+            text: modelAnalysis ? modelAnalysis.errorRate2.toFixed(2) + "%"  : 0
+            font.pixelSize: 18
+            color: "white"
+            readOnly: true
+            Layout.preferredWidth: 100
+
+            background: Rectangle {
+                implicitWidth: 100
+                implicitHeight: 20
+                color: "#1a2226"
+                border.color:  (modelAnalysis && modelAnalysis.errorRate2 <= modelAnalysis.errorRate) ? "green" : "red"
+            }
+        }
+
+        Text {
             text: "AUC: "
             font.pixelSize: 18
             color: "white"
